@@ -1,0 +1,604 @@
+    1  $pwd
+    2  pwd
+    3  sudo apt-get -y install docker
+    4  sudo systemctl start docker
+    5  sudo systemctl enable  docker
+    6  sudo systemctl status  docker
+    7  cat /etc/groups
+    8  cat /etc/group
+    9  id -a
+   10  sudo usermod -a -G ubuntu
+   11  id -a
+   12  docker info
+   13  docker pull httpd:2.4
+   14  docker images
+   15  docker rmi c62438d19947 da010bd3ab94 8268ac94424a 2e9dc504facb 7cd8ce2d0aa9
+   16  docker images
+   17  docker run -d --name testcont -p 9000:80 httpd:2.4
+   18  docker ps
+   19  docker ps -a
+   20  curl http://localhost:9000
+   21  docker inspect top testcont
+   22  docker inspect testcont
+   23  cat /proc/16300/ns
+   24  docker top testcont
+   25  docket stat testcont
+   26  docker test testcont
+   27  docker stat testcont
+   28  sudo exit
+   29  sudo bash
+   30  docker top testcont
+   31  docker stats  testcont
+   32  docker stop testcont
+   33  docker ps
+   34  docker ps -a
+   35  docker start testcont
+   36  docker ps
+   37  docker exec cat /etc/hosts
+   38  docker exec cat/etc/hosts
+   39  docker exec testcont cat/etc/hosts
+   40  docker exec testcont cat /etc/hosts
+   41  docker exec -it testcont /bin/bash
+   42  docker build -t sharadawasthi/cart cart1410/api
+   43  docker build -t sharadawasthi/cart-fe:1 cart1410/api
+   44  docker build -t sharadawasthi/cart-fe:1.0 cart1410/api
+   45  docker build -t sharadawasthi/cart-fe:1.0 cart1410/api
+   46  docker run -d --name cart-fe-test -p 9001:80 sharadawasthi/cart-fe:1.0
+   47  docker images
+   48  docker ps
+   49  curl http://localhost:9001
+   50  docker logs cart-fe-test
+   51  docker hostory cart-fe
+   52  docker history cart-fe:1.0
+   53  docker history sharadawasthi/cart-fe:1.0
+   54  docker images
+   55  git clone https://github.com/mohanraz81/myapp1808.git
+   56  docker build -t sharadawasthi/cart-fe:2.0 cart1410/api
+   57  docker ps -a
+   58  docker stop cart-fe-test;docker rm cart-fe-test
+   59  docker ps
+   60  docker run -d --name cart-fe-test -p 9001:80 sharadawasthi/cart-fe:2.0
+   61  docker ps
+   62  curl http://localhost:9001
+   63  docker stop cart-fe-test ; docker rm cart-fe-test
+   64  docker run -d --name cart-fe-test -p 9001:80 sharadawasthi/cart-fe:2.0
+   65  docker stop cart-fe-test ; docker rm cart-fe-test
+   66  docker run -d --name cart-fe-test -p 9001:80 -v cart-fe-test-logs:/var/log -v /home/ubuntu:/home/ubuntu sharadawasthi/cart-fe:2.0
+   67  docker exec -it cart-fe-test /bin/bash
+   68  docker inspect cart-fe-test
+   69  cd /var/lib/docker/volumes/cart-fe-test-logs/_data
+   70  ls
+   71  tail -f httpd/access_log
+   72  rm -rf ~/.aws
+   73  aws sts get-caller-identity
+   74  exit
+   75  sudo bash
+   76  docker build -t sharadawasthi/cart-felogs:1.0 cart1410/myappfrontendlogs/
+   77  docker images
+   78  docker run -d --name cart-fe-logs -v cart-fe-test-logs:/mnt/log:ro sharadawasthi/cart-felogs:1.0
+   79  docker network ls
+   80  docker inspect bridge
+   81  docker network create --driver bridge --subnet 10.1.0.0./16 --gateway 10.1.0.1 testnetwork
+   82  docker network ls
+   83  docker network create --driver bridge --subnet 10.1.0.0/16 --gateway 10.1.0.1 testnetwork
+   84  docker run -d --name myapp-fe -p 9002:80 --net testnwork sharadawasthi/cart-fe:2.0
+   85  docker run -d --name myapp-fe -p 9002:80 --net testnework sharadawasthi/cart-fe:2.0
+   86  docker stop cart-fe-test ; docker rm cart-fe-test
+   87  docker run -d --name myapp-fe -p 9002:80 --net testnetwork sharadawasthi/cart-fe:2.0 
+   88  docker -rm myapp-fe
+   89  docker run -d --name myapp-fe -p 9002:80 --net testnetwork sharadawasthi/cart-fe:2.0 
+   90  history
+   91  git remote -v
+   92  docker images 
+   93  docker login 
+   94  docker tag sharadawasthi/cart-fe:2.0 sharadawasthi/cart-fe:latest
+   95  docker images
+   96  docker push sharadawasthi/cart-fe
+   97  git clone https://github.com/mohanraz81/kube_install_kops.git
+   98  cd kube_install_kops
+   99  ./create_clustter.sh student5.courseandlabs.com  ec2-access-role
+  100  ./create_cluster.sh student5.courseandlabs.com  ec2-access-role
+  101  cd..
+  102  exit
+  103  history
+AP-ROLE-NAME6:~/environment $ cd kube_install_kops
+AP-ROLE-NAME6:~/environment/kube_install_kops (master) $ kubectl get nodes
+NAME                            STATUS    ROLES     AGE       VERSION
+ip-172-20-118-79.ec2.internal   Ready     node      1h        v1.12.10
+ip-172-20-127-56.ec2.internal   Ready     master    1h        v1.12.10
+ip-172-20-41-209.ec2.internal   Ready     master    1h        v1.12.10
+ip-172-20-43-113.ec2.internal   Ready     node      1h        v1.12.10
+ip-172-20-45-172.ec2.internal   Ready     node      1h        v1.12.10
+ip-172-20-80-7.ec2.internal     Ready     master    1h        v1.12.10
+ip-172-20-92-124.ec2.internal   Ready     node      1h        v1.12.10
+AP-ROLE-NAME6:~/environment/kube_install_kops (master) $ kubectl get
+You must specify the type of resource to get. Valid resource types include:
+
+    * all
+    * certificatesigningrequests (aka 'csr')
+    * clusterrolebindings
+    * clusterroles
+    * clusters (valid only for federation apiservers)
+    * componentstatuses (aka 'cs')
+    * configmaps (aka 'cm')
+    * controllerrevisions
+    * cronjobs
+    * customresourcedefinition (aka 'crd')
+    * daemonsets (aka 'ds')
+    * deployments (aka 'deploy')
+    * endpoints (aka 'ep')
+    * events (aka 'ev')
+    * horizontalpodautoscalers (aka 'hpa')
+    * ingresses (aka 'ing')
+    * jobs
+    * limitranges (aka 'limits')
+    * namespaces (aka 'ns')
+    * networkpolicies (aka 'netpol')
+    * nodes (aka 'no')
+    * persistentvolumeclaims (aka 'pvc')
+    * persistentvolumes (aka 'pv')
+    * poddisruptionbudgets (aka 'pdb')
+    * podpreset
+    * pods (aka 'po')
+    * podsecuritypolicies (aka 'psp')
+    * podtemplates
+    * replicasets (aka 'rs')
+    * replicationcontrollers (aka 'rc')
+    * resourcequotas (aka 'quota')
+    * rolebindings
+    * roles
+    * secrets
+    * serviceaccounts (aka 'sa')
+    * services (aka 'svc')
+    * statefulsets
+    * storageclasses
+    error: Required resource not specified.
+Use "kubectl explain <resource>" for a detailed description of that resource (e.g. kubectl explain pods).
+See 'kubectl get -h' for help and examples.
+AP-ROLE-NAME6:~/environment/kube_install_kops (master) $ kubect get node
+kubect: command not found
+AP-ROLE-NAME6:~/environment/kube_install_kops (master) $ kubectl get node
+NAME                            STATUS    ROLES     AGE       VERSION
+ip-172-20-118-79.ec2.internal   Ready     node      1h        v1.12.10
+ip-172-20-127-56.ec2.internal   Ready     master    1h        v1.12.10
+ip-172-20-41-209.ec2.internal   Ready     master    1h        v1.12.10
+ip-172-20-43-113.ec2.internal   Ready     node      1h        v1.12.10
+ip-172-20-45-172.ec2.internal   Ready     node      1h        v1.12.10
+ip-172-20-80-7.ec2.internal     Ready     master    1h        v1.12.10
+ip-172-20-92-124.ec2.internal   Ready     node      1h        v1.12.10
+AP-ROLE-NAME6:~/environment/kube_install_kops (master) $ kubectl describe ip-172-20-118-79.ec2.internal
+the server doesn't have a resource type "ip-172-20-118-79" in group "ec2.internal"
+AP-ROLE-NAME6:~/environment/kube_install_kops (master) $ kubectl describe nodes  ip-172-20-118-79.ec2.internal                                                                                        
+Name:               ip-172-20-118-79.ec2.internal
+Roles:              node
+Labels:             beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/instance-type=t2.small
+                    beta.kubernetes.io/os=linux
+                    failure-domain.beta.kubernetes.io/region=us-east-1
+                    failure-domain.beta.kubernetes.io/zone=us-east-1c
+                    kops.k8s.io/instancegroup=nodes
+                    kubernetes.io/hostname=ip-172-20-118-79.ec2.internal
+                    kubernetes.io/role=node
+                    node-role.kubernetes.io/node=
+Annotations:        node.alpha.kubernetes.io/ttl=0
+                    projectcalico.org/IPv4Address=172.20.118.79/19
+                    projectcalico.org/IPv4IPIPTunnelAddr=100.96.249.128
+                    volumes.kubernetes.io/controller-managed-attach-detach=true
+Taints:             <none>
+CreationTimestamp:  Wed, 16 Oct 2019 07:42:39 +0000
+Conditions:
+  Type                 Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----                 ------  -----------------                 ------------------                ------                       -------
+  NetworkUnavailable   False   Wed, 16 Oct 2019 07:43:29 +0000   Wed, 16 Oct 2019 07:43:29 +0000   CalicoIsUp                   Calico is running on this node
+  OutOfDisk            False   Wed, 16 Oct 2019 08:54:27 +0000   Wed, 16 Oct 2019 07:42:39 +0000   KubeletHasSufficientDisk     kubelet has sufficient disk space available
+  MemoryPressure       False   Wed, 16 Oct 2019 08:54:27 +0000   Wed, 16 Oct 2019 07:42:39 +0000   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure         False   Wed, 16 Oct 2019 08:54:27 +0000   Wed, 16 Oct 2019 07:42:39 +0000   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  PIDPressure          False   Wed, 16 Oct 2019 08:54:27 +0000   Wed, 16 Oct 2019 07:42:39 +0000   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready                True    Wed, 16 Oct 2019 08:54:27 +0000   Wed, 16 Oct 2019 07:43:29 +0000   KubeletReady                 kubelet is posting ready status
+Addresses:
+  InternalIP:   172.20.118.79
+  ExternalIP:   54.167.201.115
+  InternalDNS:  ip-172-20-118-79.ec2.internal
+  Hostname:     ip-172-20-118-79.ec2.internal
+  ExternalDNS:  ec2-54-167-201-115.compute-1.amazonaws.com
+Capacity:
+ attachable-volumes-aws-ebs:  39
+ cpu:                         1
+ ephemeral-storage:           29422480Ki
+ hugepages-2Mi:               0
+ memory:                      2050648Ki
+ pods:                        110
+Allocatable:
+ attachable-volumes-aws-ebs:  39
+ cpu:                         1
+ ephemeral-storage:           27115757524
+ hugepages-2Mi:               0
+ memory:                      1948248Ki
+ pods:                        110
+System Info:
+ Machine ID:                 44e0eccc5e4c44cea31ab5ed6fefe306
+ System UUID:                EC253258-2AD2-6D64-4751-DB78BEE7F348
+ Boot ID:                    1e25cf9c-0ac5-4a7f-892e-45e8e9b84fd0
+ Kernel Version:             4.9.0-9-amd64
+ OS Image:                   Debian GNU/Linux 9 (stretch)
+ Operating System:           linux
+ Architecture:               amd64
+ Container Runtime Version:  docker://18.6.3
+ Kubelet Version:            v1.12.10
+ Kube-Proxy Version:         v1.12.10
+PodCIDR:                     100.96.5.0/24
+ExternalID:                  ip-172-20-118-79.ec2.internal
+Non-terminated Pods:         (2 in total)
+  Namespace                  Name                                        CPU Requests  CPU Limits  Memory Requests  Memory Limits
+  ---------                  ----                                        ------------  ----------  ---------------  -------------
+  kube-system                calico-node-zfgcd                           10m (1%)      0 (0%)      0 (0%)           0 (0%)
+  kube-system                kube-proxy-ip-172-20-118-79.ec2.internal    100m (10%)    0 (0%)      0 (0%)           0 (0%)
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  CPU Requests  CPU Limits  Memory Requests  Memory Limits
+  ------------  ----------  ---------------  -------------
+  110m (11%)    0 (0%)      0 (0%)           0 (0%)
+Events:         <none>
+AP-ROLE-NAME6:~/environment/kube_install_kops (master) $ kubectl get events
+LAST SEEN   FIRST SEEN   COUNT     NAME                        KIND                  SUBOBJECT   TYPE      REASON    SOURCE              MESSAGE
+3m          1h           143       kube-dns.15ce10a80307353c   PodDisruptionBudget               Normal    NoPods    controllermanager   No matching pods found
+AP-ROLE-NAME6:~/environment/kube_install_kops (master) $ kubectl get namespaces
+NAME          STATUS    AGE
+default       Active    1h
+kube-public   Active    1h
+kube-system   Active    1h
+AP-ROLE-NAME6:~/environment/kube_install_kops (master) $ kubectl get pods --namespace kube-system
+NAME                                                    READY     STATUS    RESTARTS   AGE
+calico-kube-controllers-68d6bf446b-wkvq2                1/1       Running   0          1h
+calico-node-254rz                                       1/1       Running   0          1h
+calico-node-crvxh                                       1/1       Running   0          1h
+calico-node-d9qcz                                       1/1       Running   0          1h
+calico-node-jd67k                                       1/1       Running   0          1h
+calico-node-lglcx                                       1/1       Running   0          1h
+calico-node-rg86w                                       1/1       Running   0          1h
+calico-node-zfgcd                                       1/1       Running   0          1h
+dns-controller-9d69589fd-22brx                          1/1       Running   0          1h
+etcd-manager-events-ip-172-20-127-56.ec2.internal       1/1       Running   0          1h
+etcd-manager-events-ip-172-20-41-209.ec2.internal       1/1       Running   0          1h
+etcd-manager-events-ip-172-20-80-7.ec2.internal         1/1       Running   0          1h
+etcd-manager-main-ip-172-20-127-56.ec2.internal         1/1       Running   0          1h
+etcd-manager-main-ip-172-20-41-209.ec2.internal         1/1       Running   0          1h
+etcd-manager-main-ip-172-20-80-7.ec2.internal           1/1       Running   0          1h
+kube-apiserver-ip-172-20-127-56.ec2.internal            1/1       Running   3          1h
+kube-apiserver-ip-172-20-41-209.ec2.internal            1/1       Running   3          1h
+kube-apiserver-ip-172-20-80-7.ec2.internal              1/1       Running   3          1h
+kube-controller-manager-ip-172-20-127-56.ec2.internal   1/1       Running   0          1h
+kube-controller-manager-ip-172-20-41-209.ec2.internal   1/1       Running   0          1h
+kube-controller-manager-ip-172-20-80-7.ec2.internal     1/1       Running   0          1h
+kube-dns-59c75459bc-gphf5                               3/3       Running   0          1h
+kube-dns-autoscaler-867b9fd49d-ks579                    1/1       Running   0          1h
+kube-proxy-ip-172-20-118-79.ec2.internal                1/1       Running   0          1h
+kube-proxy-ip-172-20-127-56.ec2.internal                1/1       Running   0          1h
+kube-proxy-ip-172-20-41-209.ec2.internal                1/1       Running   0          1h
+kube-proxy-ip-172-20-43-113.ec2.internal                1/1       Running   0          1h
+kube-proxy-ip-172-20-45-172.ec2.internal                1/1       Running   0          1h
+kube-proxy-ip-172-20-80-7.ec2.internal                  1/1       Running   0          1h
+kube-proxy-ip-172-20-92-124.ec2.internal                1/1       Running   0          1h
+kube-scheduler-ip-172-20-127-56.ec2.internal            1/1       Running   0          1h
+kube-scheduler-ip-172-20-41-209.ec2.internal            1/1       Running   0          1h
+kube-scheduler-ip-172-20-80-7.ec2.internal              1/1       Running   0          1h
+AP-ROLE-NAME6:~/environment/kube_install_kops (master) $ cd ../cart1410/
+AP-ROLE-NAME6:~/environment/cart1410 $ kubectl apply -f namespace/namespacedeploy.yaml
+namespace "mycart" created
+resourcequota "mycart-rq" created
+limitrange "mycart-lr" created
+AP-ROLE-NAME6:~/environment/cart1410 $ kubectl get namespaces                                                                                                                                                                               
+NAME          STATUS    AGE
+default       Active    1h
+kube-public   Active    1h
+kube-system   Active    1h
+mycart        Active    15s
+AP-ROLE-NAME6:~/environment/cart1410 $ cd ../kube_install_kops/
+AP-ROLE-NAME6:~/environment/kube_install_kops (master) $ kubectl apply -f metricserver.yaml
+serviceaccount "metrics-server" created
+clusterrolebinding "metrics-server:system:auth-delegator" created
+rolebinding "metrics-server-auth-reader" created
+clusterrole "system:metrics-server" created
+clusterrole "system:aggregated-metrics-reader" created
+clusterrolebinding "system:metrics-server" created
+apiservice "v1beta1.metrics.k8s.io" created
+service "metrics-server" created
+deployment "metrics-server" created
+clusterrolebinding "system:kubelet-api-admin" created
+AP-ROLE-NAME6:~/environment/kube_install_kops (master) $ cd ..
+AP-ROLE-NAME6:~/environment $ cd cart1410
+AP-ROLE-NAME6:~/environment/cart1410 $ kubectl apply -f deploy/frontend/
+deployment "myacart-frontend" created
+horizontalpodautoscaler "myapp-frontend-hpa" created
+service "api" created
+AP-ROLE-NAME6:~/environment/cart1410 $ kubectl get all -n mycart
+NAME                      AGE
+deploy/myacart-frontend   57s
+
+NAME                             AGE
+rs/myacart-frontend-7fb9c9bd64   57s
+
+NAME                     REFERENCE                     TARGETS           MINPODS   MAXPODS   REPLICAS   AGE
+hpa/myapp-frontend-hpa   Deployment/myacart-frontend   <unknown> / 70%   2         10        2          57s
+
+NAME                                   READY     STATUS    RESTARTS   AGE
+po/myacart-frontend-7fb9c9bd64-8xhc2   1/1       Running   0          56s
+po/myacart-frontend-7fb9c9bd64-wl9jw   1/1       Running   0          57s
+
+NAME      TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+svc/api   LoadBalancer   100.65.69.177   <pending>     80:32562/TCP   56s
+AP-ROLE-NAME6:~/environment/cart1410 $ kubectl describe pod po/myacart-frontend-7fb9c9bd64-8xhc2 
+error: there is no need to specify a resource type as a separate argument when passing arguments in resource/name form (e.g. 'kubectl get resource/<resource_name>' instead of 'kubectl get resource resource/<resource_name>'
+AP-ROLE-NAME6:~/environment/cart1410 $ kubectl describe pod po/myacart-frontend-7fb9c9bd64-8xhc2 -n mycart
+error: there is no need to specify a resource type as a separate argument when passing arguments in resource/name form (e.g. 'kubectl get resource/<resource_name>' instead of 'kubectl get resource resource/<resource_name>'
+AP-ROLE-NAME6:~/environment/cart1410 $ kubectl get hpa -n mycart
+NAME                 REFERENCE                     TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
+myapp-frontend-hpa   Deployment/myacart-frontend   0% / 70%   2         10        2          12m
+AP-ROLE-NAME6:~/environment/cart1410 $ kuctl get events -n mycart
+
+Command 'kuctl' not found, did you mean:
+
+  command 'knctl' from snap knctl (v0.3.0)
+  command 'auctl' from deb nas-bin
+
+See 'snap info <snapname>' for additional versions.
+
+AP-ROLE-NAME6:~/environment/cart1410 $ kubectl get events -n mycart                                                                                                                                   
+LAST SEEN   FIRST SEEN   COUNT     NAME                   KIND      SUBOBJECT   TYPE      REASON                       SOURCE               MESSAGE
+3m          14m          8         api.15ce174970014c15   Service               Normal    EnsuringLoadBalancer         service-controller   Ensuring load balancer
+14m         14m          1         api.15ce1749aaa2fcfe   Service               Warning   CreatingLoadBalancerFailed   service-controller   Error creating load balancer (will retry): failed to ensure load balancer for service mycart/api: AccessDenied: User: arn:aws:sts::432612584690:assumed-role/masters.kubecluster.student5.courseandlabs.com/i-03accb63996f7d203 is not authorized to perform: iam:CreateServiceLinkedRole on resource: arn:aws:iam::432612584690:role/aws-service-role/elasticloadbalancing.amazonaws.com/AWSServiceRoleForElasticLoadBalancing
+            status code: 403, request id: 763a9b52-40e2-4346-b02f-b030fa3896ee
+13m         13m       1         api.15ce174aeb82f574   Service             Warning   CreatingLoadBalancerFailed   service-controller   Error creating load balancer (will retry): failed to ensure load balancer for service mycart/api: AccessDenied: User: arn:aws:sts::432612584690:assumed-role/masters.kubecluster.student5.courseandlabs.com/i-03accb63996f7d203 is not authorized to perform: iam:CreateServiceLinkedRole on resource: arn:aws:iam::432612584690:role/aws-service-role/elasticloadbalancing.amazonaws.com/AWSServiceRoleForElasticLoadBalancing
+            status code: 403, request id: 740c22f8-91a9-47cb-b983-131af6fb6647
+13m         13m       1         api.15ce174d4f025182   Service             Warning   CreatingLoadBalancerFailed   service-controller   Error creating load balancer (will retry): failed to ensure load balancer for service mycart/api: AccessDenied: User: arn:aws:sts::432612584690:assumed-role/masters.kubecluster.student5.courseandlabs.com/i-03accb63996f7d203 is not authorized to perform: iam:CreateServiceLinkedRole on resource: arn:aws:iam::432612584690:role/aws-service-role/elasticloadbalancing.amazonaws.com/AWSServiceRoleForElasticLoadBalancing
+            status code: 403, request id: 9c719fa8-df6c-44e5-b9eb-e2f0dda3c3f1
+13m         13m       1         api.15ce17520710718f   Service             Warning   CreatingLoadBalancerFailed   service-controller   Error creating load balancer (will retry): failed to ensure load balancer for service mycart/api: AccessDenied: User: arn:aws:sts::432612584690:assumed-role/masters.kubecluster.student5.courseandlabs.com/i-03accb63996f7d203 is not authorized to perform: iam:CreateServiceLinkedRole on resource: arn:aws:iam::432612584690:role/aws-service-role/elasticloadbalancing.amazonaws.com/AWSServiceRoleForElasticLoadBalancing
+            status code: 403, request id: 05dea7ea-4839-4a57-a3d9-5e4b03d110fb
+12m         12m       1         api.15ce175b68764411   Service             Warning   CreatingLoadBalancerFailed   service-controller   Error creating load balancer (will retry): failed to ensure load balancer for service mycart/api: AccessDenied: User: arn:aws:sts::432612584690:assumed-role/masters.kubecluster.student5.courseandlabs.com/i-03accb63996f7d203 is not authorized to perform: iam:CreateServiceLinkedRole on resource: arn:aws:iam::432612584690:role/aws-service-role/elasticloadbalancing.amazonaws.com/AWSServiceRoleForElasticLoadBalancing
+            status code: 403, request id: cecdbb35-f8f8-4f67-a3f3-8d1ffbff7413
+11m         11m       1         api.15ce176e2e5fff3b   Service             Warning   CreatingLoadBalancerFailed   service-controller   Error creating load balancer (will retry): failed to ensure load balancer for service mycart/api: AccessDenied: User: arn:aws:sts::432612584690:assumed-role/masters.kubecluster.student5.courseandlabs.com/i-03accb63996f7d203 is not authorized to perform: iam:CreateServiceLinkedRole on resource: arn:aws:iam::432612584690:role/aws-service-role/elasticloadbalancing.amazonaws.com/AWSServiceRoleForElasticLoadBalancing
+            status code: 403, request id: d299d861-ed1a-4f11-ace7-71f3f61bfa82
+8m          8m        1         api.15ce17938fdd6719   Service             Warning   CreatingLoadBalancerFailed   service-controller   Error creating load balancer (will retry): failed to ensure load balancer for service mycart/api: AccessDenied: User: arn:aws:sts::432612584690:assumed-role/masters.kubecluster.student5.courseandlabs.com/i-03accb63996f7d203 is not authorized to perform: iam:CreateServiceLinkedRole on resource: arn:aws:iam::432612584690:role/aws-service-role/elasticloadbalancing.amazonaws.com/AWSServiceRoleForElasticLoadBalancing
+            status code: 403, request id: d336bd04-92c8-4f49-89e2-12e04068d4e5
+3m          3m        1         api.15ce17d9866f93d9   Service             Warning   CreatingLoadBalancerFailed   service-controller   Error creating load balancer (will retry): failed to ensure load balancer for service mycart/api: AccessDenied: User: arn:aws:sts::432612584690:assumed-role/masters.kubecluster.student5.courseandlabs.com/i-03accb63996f7d203 is not authorized to perform: iam:CreateServiceLinkedRole on resource: arn:aws:iam::432612584690:role/aws-service-role/elasticloadbalancing.amazonaws.com/AWSServiceRoleForElasticLoadBalancing
+            status code: 403, request id: 722a0d33-83d8-4f0d-92fd-b65023eaaabf
+14m         14m       1         myacart-frontend-7fb9c9bd64-8xhc2.15ce17496b64616c   Pod                                                  Normal    Scheduled                      default-scheduler                        Successfully assigned mycart/myacart-frontend-7fb9c9bd64-8xhc2 to ip-172-20-118-79.ec2.internal
+14m         14m       1         myacart-frontend-7fb9c9bd64-8xhc2.15ce17499171a179   Pod                       spec.containers{myappfe}   Normal    Pulling                        kubelet, ip-172-20-118-79.ec2.internal   pulling image "sharadawasthi/cart-fe:2.0"
+13m         13m       1         myacart-frontend-7fb9c9bd64-8xhc2.15ce174d81c7fe52   Pod                       spec.containers{myappfe}   Normal    Pulled                         kubelet, ip-172-20-118-79.ec2.internal   Successfully pulled image "sharadawasthi/cart-fe:2.0"
+13m         13m       1         myacart-frontend-7fb9c9bd64-8xhc2.15ce174d83c0e47d   Pod                       spec.containers{myappfe}   Normal    Created                        kubelet, ip-172-20-118-79.ec2.internal   Created container
+13m         13m       1         myacart-frontend-7fb9c9bd64-8xhc2.15ce174d8eb704aa   Pod                       spec.containers{myappfe}   Normal    Started                        kubelet, ip-172-20-118-79.ec2.internal   Started container
+14m         14m       1         myacart-frontend-7fb9c9bd64-wl9jw.15ce17496776b935   Pod                                                  Normal    Scheduled                      default-scheduler                        Successfully assigned mycart/myacart-frontend-7fb9c9bd64-wl9jw to ip-172-20-43-113.ec2.internal
+14m         14m       1         myacart-frontend-7fb9c9bd64-wl9jw.15ce17499fc233bf   Pod                       spec.containers{myappfe}   Normal    Pulling                        kubelet, ip-172-20-43-113.ec2.internal   pulling image "sharadawasthi/cart-fe:2.0"
+13m         13m       1         myacart-frontend-7fb9c9bd64-wl9jw.15ce174d809708cc   Pod                       spec.containers{myappfe}   Normal    Pulled                         kubelet, ip-172-20-43-113.ec2.internal   Successfully pulled image "sharadawasthi/cart-fe:2.0"
+13m         13m       1         myacart-frontend-7fb9c9bd64-wl9jw.15ce174d82bfd2aa   Pod                       spec.containers{myappfe}   Normal    Created                        kubelet, ip-172-20-43-113.ec2.internal   Created container
+13m         13m       1         myacart-frontend-7fb9c9bd64-wl9jw.15ce174d8d6b1d6e   Pod                       spec.containers{myappfe}   Normal    Started                        kubelet, ip-172-20-43-113.ec2.internal   Started container
+14m         14m       1         myacart-frontend-7fb9c9bd64.15ce1749655795d7         ReplicaSet                                           Normal    SuccessfulCreate               replicaset-controller                    Created pod: myacart-frontend-7fb9c9bd64-wl9jw
+14m         14m       1         myacart-frontend-7fb9c9bd64.15ce174969cebeb8         ReplicaSet                                           Normal    SuccessfulCreate               replicaset-controller                    Created pod: myacart-frontend-7fb9c9bd64-8xhc2
+14m         14m       1         myacart-frontend.15ce174963a34ae3                    Deployment                                           Normal    ScalingReplicaSet              deployment-controller                    Scaled up replica set myacart-frontend-7fb9c9bd64 to 2
+13m         13m       1         myapp-frontend-hpa.15ce174ce66ad05d                  HorizontalPodAutoscaler                              Warning   FailedGetResourceMetric        horizontal-pod-autoscaler                unable to get metrics for resource cpu: no metrics returned from resource metrics API
+13m         13m       1         myapp-frontend-hpa.15ce174ce710da7f                  HorizontalPodAutoscaler                              Warning   FailedComputeMetricsReplicas   horizontal-pod-autoscaler                failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+13m         13m       3         myapp-frontend-hpa.15ce1750670463ea                  HorizontalPodAutoscaler                              Warning   FailedGetResourceMetric        horizontal-pod-autoscaler                did not receive metrics for any ready pods
+13m         13m       3         myapp-frontend-hpa.15ce175068ad6dd3                  HorizontalPodAutoscaler                              Warning   FailedComputeMetricsReplicas   horizontal-pod-autoscaler                failed to get cpu utilization: did not receive metrics for any ready pods
+AP-ROLE-NAME6:~/environment/cart1410 $ kubectl describe service api -n mycart
+Name:                     api
+Namespace:                mycart
+Labels:                   <none>
+Annotations:              kubectl.kubernetes.io/last-applied-configuration={"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"api","namespace":"mycart"},"spec":{"ports":[{"port":80,"protocol":"TCP","targe...
+Selector:                 app=myapp,tier=frontend
+Type:                     LoadBalancer
+IP:                       100.65.69.177
+Port:                     <unset>  80/TCP
+TargetPort:               80/TCP
+NodePort:                 <unset>  32562/TCP
+Endpoints:                100.96.5.3:80,100.96.7.2:80
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:
+  Type     Reason                      Age   From                Message
+  ----     ------                      ----  ----                -------
+  Warning  CreatingLoadBalancerFailed  14m   service-controller  Error creating load balancer (will retry): failed to ensure load balancer for service mycart/api: AccessDenied: User: arn:aws:sts::432612584690:assumed-role/masters.kubecluster.student5.courseandlabs.com/i-03accb63996f7d203 is not authorized to perform: iam:CreateServiceLinkedRole on resource: arn:aws:iam::432612584690:role/aws-service-role/elasticloadbalancing.amazonaws.com/AWSServiceRoleForElasticLoadBalancing
+           status code: 403, request id: 763a9b52-40e2-4346-b02f-b030fa3896ee
+  Warning  CreatingLoadBalancerFailed  14m  service-controller  Error creating load balancer (will retry): failed to ensure load balancer for service mycart/api: AccessDenied: User: arn:aws:sts::432612584690:assumed-role/masters.kubecluster.student5.courseandlabs.com/i-03accb63996f7d203 is not authorized to perform: iam:CreateServiceLinkedRole on resource: arn:aws:iam::432612584690:role/aws-service-role/elasticloadbalancing.amazonaws.com/AWSServiceRoleForElasticLoadBalancing
+           status code: 403, request id: 740c22f8-91a9-47cb-b983-131af6fb6647
+  Warning  CreatingLoadBalancerFailed  14m  service-controller  Error creating load balancer (will retry): failed to ensure load balancer for service mycart/api: AccessDenied: User: arn:aws:sts::432612584690:assumed-role/masters.kubecluster.student5.courseandlabs.com/i-03accb63996f7d203 is not authorized to perform: iam:CreateServiceLinkedRole on resource: arn:aws:iam::432612584690:role/aws-service-role/elasticloadbalancing.amazonaws.com/AWSServiceRoleForElasticLoadBalancing
+           status code: 403, request id: 9c719fa8-df6c-44e5-b9eb-e2f0dda3c3f1
+  Warning  CreatingLoadBalancerFailed  13m  service-controller  Error creating load balancer (will retry): failed to ensure load balancer for service mycart/api: AccessDenied: User: arn:aws:sts::432612584690:assumed-role/masters.kubecluster.student5.courseandlabs.com/i-03accb63996f7d203 is not authorized to perform: iam:CreateServiceLinkedRole on resource: arn:aws:iam::432612584690:role/aws-service-role/elasticloadbalancing.amazonaws.com/AWSServiceRoleForElasticLoadBalancing
+           status code: 403, request id: 05dea7ea-4839-4a57-a3d9-5e4b03d110fb
+  Warning  CreatingLoadBalancerFailed  13m  service-controller  Error creating load balancer (will retry): failed to ensure load balancer for service mycart/api: AccessDenied: User: arn:aws:sts::432612584690:assumed-role/masters.kubecluster.student5.courseandlabs.com/i-03accb63996f7d203 is not authorized to perform: iam:CreateServiceLinkedRole on resource: arn:aws:iam::432612584690:role/aws-service-role/elasticloadbalancing.amazonaws.com/AWSServiceRoleForElasticLoadBalancing
+           status code: 403, request id: cecdbb35-f8f8-4f67-a3f3-8d1ffbff7413
+  Warning  CreatingLoadBalancerFailed  11m  service-controller  Error creating load balancer (will retry): failed to ensure load balancer for service mycart/api: AccessDenied: User: arn:aws:sts::432612584690:assumed-role/masters.kubecluster.student5.courseandlabs.com/i-03accb63996f7d203 is not authorized to perform: iam:CreateServiceLinkedRole on resource: arn:aws:iam::432612584690:role/aws-service-role/elasticloadbalancing.amazonaws.com/AWSServiceRoleForElasticLoadBalancing
+           status code: 403, request id: d299d861-ed1a-4f11-ace7-71f3f61bfa82
+  Warning  CreatingLoadBalancerFailed  9m  service-controller  Error creating load balancer (will retry): failed to ensure load balancer for service mycart/api: AccessDenied: User: arn:aws:sts::432612584690:assumed-role/masters.kubecluster.student5.courseandlabs.com/i-03accb63996f7d203 is not authorized to perform: iam:CreateServiceLinkedRole on resource: arn:aws:iam::432612584690:role/aws-service-role/elasticloadbalancing.amazonaws.com/AWSServiceRoleForElasticLoadBalancing
+           status code: 403, request id: d336bd04-92c8-4f49-89e2-12e04068d4e5
+  Normal   EnsuringLoadBalancer        4m (x8 over 14m)  service-controller  Ensuring load balancer
+  Warning  CreatingLoadBalancerFailed  4m                service-controller  Error creating load balancer (will retry): failed to ensure load balancer for service mycart/api: AccessDenied: User: arn:aws:sts::432612584690:assumed-role/masters.kubecluster.student5.courseandlabs.com/i-03accb63996f7d203 is not authorized to perform: iam:CreateServiceLinkedRole on resource: arn:aws:iam::432612584690:role/aws-service-role/elasticloadbalancing.amazonaws.com/AWSServiceRoleForElasticLoadBalancing
+           status code: 403, request id: 722a0d33-83d8-4f0d-92fd-b65023eaaabf
+AP-ROLE-NAME6:~/environment/cart1410 $ 
+AP-ROLE-NAME6:~/environment/cart1410 $ kubectl describe service api -n mycart
+Name:                     api
+Namespace:                mycart
+Labels:                   <none>
+Annotations:              kubectl.kubernetes.io/last-applied-configuration={"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"api","namespace":"mycart"},"spec":{"ports":[{"port":80,"protocol":"TCP","targe...
+Selector:                 app=myapp,tier=frontend
+Type:                     LoadBalancer
+IP:                       100.65.69.177
+Port:                     <unset>  80/TCP
+TargetPort:               80/TCP
+NodePort:                 <unset>  32562/TCP
+Endpoints:                100.96.5.3:80,100.96.7.2:80
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:
+  Type     Reason                      Age   From                Message
+  ----     ------                      ----  ----                -------
+  Warning  CreatingLoadBalancerFailed  21m   service-controller  Error creating load balancer (will retry): failed to ensure load balancer for service mycart/api: AccessDenied: User: arn:aws:sts::432612584690:assumed-role/masters.kubecluster.student5.courseandlabs.com/i-03accb63996f7d203 is not authorized to perform: iam:CreateServiceLinkedRole on resource: arn:aws:iam::432612584690:role/aws-service-role/elasticloadbalancing.amazonaws.com/AWSServiceRoleForElasticLoadBalancing
+           status code: 403, request id: 763a9b52-40e2-4346-b02f-b030fa3896ee
+  Warning  CreatingLoadBalancerFailed  21m  service-controller  Error creating load balancer (will retry): failed to ensure load balancer for service mycart/api: AccessDenied: User: arn:aws:sts::432612584690:assumed-role/masters.kubecluster.student5.courseandlabs.com/i-03accb63996f7d203 is not authorized to perform: iam:CreateServiceLinkedRole on resource: arn:aws:iam::432612584690:role/aws-service-role/elasticloadbalancing.amazonaws.com/AWSServiceRoleForElasticLoadBalancing
+           status code: 403, request id: 740c22f8-91a9-47cb-b983-131af6fb6647
+  Warning  CreatingLoadBalancerFailed  21m  service-controller  Error creating load balancer (will retry): failed to ensure load balancer for service mycart/api: AccessDenied: User: arn:aws:sts::432612584690:assumed-role/masters.kubecluster.student5.courseandlabs.com/i-03accb63996f7d203 is not authorized to perform: iam:CreateServiceLinkedRole on resource: arn:aws:iam::432612584690:role/aws-service-role/elasticloadbalancing.amazonaws.com/AWSServiceRoleForElasticLoadBalancing
+           status code: 403, request id: 9c719fa8-df6c-44e5-b9eb-e2f0dda3c3f1
+  Warning  CreatingLoadBalancerFailed  21m  service-controller  Error creating load balancer (will retry): failed to ensure load balancer for service mycart/api: AccessDenied: User: arn:aws:sts::432612584690:assumed-role/masters.kubecluster.student5.courseandlabs.com/i-03accb63996f7d203 is not authorized to perform: iam:CreateServiceLinkedRole on resource: arn:aws:iam::432612584690:role/aws-service-role/elasticloadbalancing.amazonaws.com/AWSServiceRoleForElasticLoadBalancing
+           status code: 403, request id: 05dea7ea-4839-4a57-a3d9-5e4b03d110fb
+  Warning  CreatingLoadBalancerFailed  20m  service-controller  Error creating load balancer (will retry): failed to ensure load balancer for service mycart/api: AccessDenied: User: arn:aws:sts::432612584690:assumed-role/masters.kubecluster.student5.courseandlabs.com/i-03accb63996f7d203 is not authorized to perform: iam:CreateServiceLinkedRole on resource: arn:aws:iam::432612584690:role/aws-service-role/elasticloadbalancing.amazonaws.com/AWSServiceRoleForElasticLoadBalancing
+           status code: 403, request id: cecdbb35-f8f8-4f67-a3f3-8d1ffbff7413
+  Warning  CreatingLoadBalancerFailed  19m  service-controller  Error creating load balancer (will retry): failed to ensure load balancer for service mycart/api: AccessDenied: User: arn:aws:sts::432612584690:assumed-role/masters.kubecluster.student5.courseandlabs.com/i-03accb63996f7d203 is not authorized to perform: iam:CreateServiceLinkedRole on resource: arn:aws:iam::432612584690:role/aws-service-role/elasticloadbalancing.amazonaws.com/AWSServiceRoleForElasticLoadBalancing
+           status code: 403, request id: d299d861-ed1a-4f11-ace7-71f3f61bfa82
+  Warning  CreatingLoadBalancerFailed  16m  service-controller  Error creating load balancer (will retry): failed to ensure load balancer for service mycart/api: AccessDenied: User: arn:aws:sts::432612584690:assumed-role/masters.kubecluster.student5.courseandlabs.com/i-03accb63996f7d203 is not authorized to perform: iam:CreateServiceLinkedRole on resource: arn:aws:iam::432612584690:role/aws-service-role/elasticloadbalancing.amazonaws.com/AWSServiceRoleForElasticLoadBalancing
+           status code: 403, request id: d336bd04-92c8-4f49-89e2-12e04068d4e5
+  Warning  CreatingLoadBalancerFailed  11m  service-controller  Error creating load balancer (will retry): failed to ensure load balancer for service mycart/api: AccessDenied: User: arn:aws:sts::432612584690:assumed-role/masters.kubecluster.student5.courseandlabs.com/i-03accb63996f7d203 is not authorized to perform: iam:CreateServiceLinkedRole on resource: arn:aws:iam::432612584690:role/aws-service-role/elasticloadbalancing.amazonaws.com/AWSServiceRoleForElasticLoadBalancing
+           status code: 403, request id: 722a0d33-83d8-4f0d-92fd-b65023eaaabf
+  Warning  CreatingLoadBalancerFailed  6m  service-controller  Error creating load balancer (will retry): failed to ensure load balancer for service mycart/api: AccessDenied: User: arn:aws:sts::432612584690:assumed-role/masters.kubecluster.student5.courseandlabs.com/i-03accb63996f7d203 is not authorized to perform: iam:CreateServiceLinkedRole on resource: arn:aws:iam::432612584690:role/aws-service-role/elasticloadbalancing.amazonaws.com/AWSServiceRoleForElasticLoadBalancing
+           status code: 403, request id: 47168199-2793-414d-b780-3d78f2a4e2f1
+  Normal   EnsuringLoadBalancer        1m (x10 over 21m)  service-controller  Ensuring load balancer
+  Warning  CreatingLoadBalancerFailed  1m                 service-controller  (combined from similar events): Error creating load balancer (will retry): failed to ensure load balancer for service mycart/api: AccessDenied: User: arn:aws:sts::432612584690:assumed-role/masters.kubecluster.student5.courseandlabs.com/i-03accb63996f7d203 is not authorized to perform: iam:CreateServiceLinkedRole on resource: arn:aws:iam::432612584690:role/aws-service-role/elasticloadbalancing.amazonaws.com/AWSServiceRoleForElasticLoadBalancing
+           status code: 403, request id: 32bce7dd-d7b3-4398-a17c-c9bc0eb25715
+AP-ROLE-NAME6:~/environment/cart1410 $ 
+AP-ROLE-NAME6:~/environment/cart1410 $ kubectl apply -f deploy/frontend/                                                                                                                              
+deployment "myacart-frontend" configured
+horizontalpodautoscaler "myapp-frontend-hpa" configured
+service "api" configured
+AP-ROLE-NAME6:~/environment/cart1410 $ kubectl rollout history feployement.v1beta1.apps/macart=frontend
+the server doesn't have a resource type "feployement" in group "v1beta1.apps"
+AP-ROLE-NAME6:~/environment/cart1410 $ kubectl rollout history deployment.v1beta1.apps/myacart-frontend -n mycart
+deployments "myacart-frontend"
+REVISION  CHANGE-CAUSE
+1         <none>
+2         <none>
+
+AP-ROLE-NAME6:~/environment/cart1410 $ kubectl rollout undo  deployment.v1beta1.apps/myacart-frontend -n mycart                                                                                       
+deployment "myacart-frontend" rolled back
+AP-ROLE-NAME6:~/environment/cart1410 $ history
+    1  $pwd
+    2  pwd
+    3  sudo apt-get -y install docker
+    4  sudo systemctl start docker
+    5  sudo systemctl enable  docker
+    6  sudo systemctl status  docker
+    7  cat /etc/groups
+    8  cat /etc/group
+    9  id -a
+   10  sudo usermod -a -G ubuntu
+   11  id -a
+   12  docker info
+   13  docker pull httpd:2.4
+   14  docker images
+   15  docker rmi c62438d19947 da010bd3ab94 8268ac94424a 2e9dc504facb 7cd8ce2d0aa9
+   16  docker images
+   17  docker run -d --name testcont -p 9000:80 httpd:2.4
+   18  docker ps
+   19  docker ps -a
+   20  curl http://localhost:9000
+   21  docker inspect top testcont
+   22  docker inspect testcont
+   23  cat /proc/16300/ns
+   24  docker top testcont
+   25  docket stat testcont
+   26  docker test testcont
+   27  docker stat testcont
+   28  sudo exit
+   29  sudo bash
+   30  docker top testcont
+   31  docker stats  testcont
+   32  docker stop testcont
+   33  docker ps
+   34  docker ps -a
+   35  docker start testcont
+   36  docker ps
+   37  docker exec cat /etc/hosts
+   38  docker exec cat/etc/hosts
+   39  docker exec testcont cat/etc/hosts
+   40  docker exec testcont cat /etc/hosts
+   41  docker exec -it testcont /bin/bash
+   42  docker build -t sharadawasthi/cart cart1410/api
+   43  docker build -t sharadawasthi/cart-fe:1 cart1410/api
+   44  docker build -t sharadawasthi/cart-fe:1.0 cart1410/api
+   45  docker build -t sharadawasthi/cart-fe:1.0 cart1410/api
+   46  docker run -d --name cart-fe-test -p 9001:80 sharadawasthi/cart-fe:1.0
+   47  docker images
+   48  docker ps
+   49  curl http://localhost:9001
+   50  docker logs cart-fe-test
+   51  docker hostory cart-fe
+   52  docker history cart-fe:1.0
+   53  docker history sharadawasthi/cart-fe:1.0
+   54  docker images
+   55  git clone https://github.com/mohanraz81/myapp1808.git
+   56  docker build -t sharadawasthi/cart-fe:2.0 cart1410/api
+   57  docker ps -a
+   58  docker stop cart-fe-test;docker rm cart-fe-test
+   59  docker ps
+   60  docker run -d --name cart-fe-test -p 9001:80 sharadawasthi/cart-fe:2.0
+   61  docker ps
+   62  curl http://localhost:9001
+   63  docker stop cart-fe-test ; docker rm cart-fe-test
+   64  docker run -d --name cart-fe-test -p 9001:80 sharadawasthi/cart-fe:2.0
+   65  docker stop cart-fe-test ; docker rm cart-fe-test
+   66  docker run -d --name cart-fe-test -p 9001:80 -v cart-fe-test-logs:/var/log -v /home/ubuntu:/home/ubuntu sharadawasthi/cart-fe:2.0
+   67  docker exec -it cart-fe-test /bin/bash
+   68  docker inspect cart-fe-test
+   69  cd /var/lib/docker/volumes/cart-fe-test-logs/_data
+   70  ls
+   71  tail -f httpd/access_log
+   72  rm -rf ~/.aws
+   73  aws sts get-caller-identity
+   74  exit
+   75  sudo bash
+   76  docker build -t sharadawasthi/cart-felogs:1.0 cart1410/myappfrontendlogs/
+   77  docker images
+   78  docker run -d --name cart-fe-logs -v cart-fe-test-logs:/mnt/log:ro sharadawasthi/cart-felogs:1.0
+   79  docker network ls
+   80  docker inspect bridge
+   81  docker network create --driver bridge --subnet 10.1.0.0./16 --gateway 10.1.0.1 testnetwork
+   82  docker network ls
+   83  docker network create --driver bridge --subnet 10.1.0.0/16 --gateway 10.1.0.1 testnetwork
+   84  docker run -d --name myapp-fe -p 9002:80 --net testnwork sharadawasthi/cart-fe:2.0
+   85  docker run -d --name myapp-fe -p 9002:80 --net testnework sharadawasthi/cart-fe:2.0
+   86  docker stop cart-fe-test ; docker rm cart-fe-test
+   87  docker run -d --name myapp-fe -p 9002:80 --net testnetwork sharadawasthi/cart-fe:2.0 
+   88  docker -rm myapp-fe
+   89  docker run -d --name myapp-fe -p 9002:80 --net testnetwork sharadawasthi/cart-fe:2.0 
+   90  history
+   91  git remote -v
+   92  docker images 
+   93  docker login 
+   94  docker tag sharadawasthi/cart-fe:2.0 sharadawasthi/cart-fe:latest
+   95  docker images
+   96  docker push sharadawasthi/cart-fe
+   97  git clone https://github.com/mohanraz81/kube_install_kops.git
+   98  cd kube_install_kops
+   99  ./create_clustter.sh student5.courseandlabs.com  ec2-access-role
+  100  ./create_cluster.sh student5.courseandlabs.com  ec2-access-role
+  101  cd..
+  102  exit
+  103  history
+  104  cd kube_install_kops
+  105  kubectl get nodes
+  106  kubectl get
+  107  kubect get node
+  108  kubectl get node
+  109  kubectl describe ip-172-20-118-79.ec2.internal
+  110  kubectl describe nodes  ip-172-20-118-79.ec2.internal
+  111  kubectl get events
+  112  kubectl get namespaces
+  113  kubectl get pods --namespace kube-system
+  114  cd ../cart1410/
+  115  kubectl apply -f namespace/namespacedeploy.yaml
+  116  kubectl get namespaces
+  117  cd ../kube_install_kops/
+  118  kubectl apply -f metricserver.yaml
+  119  cd ..
+  120  cd cart1410
+  121  kubectl apply -f deploy/frontend/
+  122  kubectl get all -n mycart
+  123  kubectl describe pod po/myacart-frontend-7fb9c9bd64-8xhc2 
+  124  kubectl describe pod po/myacart-frontend-7fb9c9bd64-8xhc2 -n mycart
+  125  kubectl get hpa -n mycart
+  126  kuctl get events -n mycart
+  127  kubectl get events -n mycart
+  128  kubectl describe service api -n mycart
+  129  kubectl describe service api -n mycart
+  130  kubectl apply -f deploy/frontend/
+  131  kubectl rollout history feployement.v1beta1.apps/macart=frontend
+  132  kubectl rollout history deployment.v1beta1.apps/myacart-frontend -n mycart
+  133  kubectl rollout undo  deployment.v1beta1.apps/myacart-frontend -n mycart
+  134  history
